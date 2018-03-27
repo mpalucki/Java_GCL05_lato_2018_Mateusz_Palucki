@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="361.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.clockController">
+   <children>
+      <SplitPane fx:id="mainPane" dividerPositions="0.479933110367893" layoutX="4.0" layoutY="22.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="339.0" prefWidth="699.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+        <items>
+          <AnchorPane fx:id="anchorPaneWithCanvas" minHeight="0.0" minWidth="0.0" prefHeight="335.0" prefWidth="326.0">
+               <children>
+                  <Canvas fx:id="myCanvas" height="264.0" layoutX="14.0" layoutY="14.0" width="266.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <ListView fx:id="listOfAlarms" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="332.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="14.0">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#deleteAlarm" text="usuń budzik" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </ListView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <MenuBar layoutX="4.0" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Program">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#close" text="Zamknij" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Budzik">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#showAlarmPane" text="Dodaj budzik" />
+                  <MenuItem mnemonicParsing="false" onAction="#deleteAlarm" text="Usuń budzik" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" onAction="#showAuthor" onHidden="#showAuthor" onHiding="#showAuthor" onMenuValidation="#showAuthor" onShowing="#showAuthor" onShown="#showAuthor" text="o Autorze" />
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
